@@ -1,0 +1,27 @@
+import java.util.Scanner;
+
+public class Ex1 {
+	public static void main(String[] args)
+	{
+		System.out.println("Insira numeros inteiros desejados (Digite negativo para encerrar): ");
+		Scanner input = new Scanner(System.in);
+		int numDigitado = 0;
+		int numConcat = 0;
+		
+		numDigitado = input.nextInt();
+		if(numDigitado >= 0)
+		{
+			do
+			{
+			
+			numDigitado = input.nextInt();
+			numConcat = numDigitado.concat
+			
+			
+			}while(numDigitado >= 0);
+			
+		}else {
+			System.out.println("Primeiro numero negativo. Reinicie o programa.");
+		}
+	}
+}
