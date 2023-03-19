@@ -1,12 +1,20 @@
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Collections;
 import java.util.Scanner;
+import java.util.stream.IntStream;
 
 public class Ex1 {
 	public static void main(String[] args)
 	{
 		System.out.println("Insira numeros inteiros desejados (Digite negativo para encerrar): ");
+		ArrayList<Integer> numeros = new ArrayList<Integer>();
+		
 		Scanner input = new Scanner(System.in);
 		int numDigitado = 0;
-		int numConcat = 0;
+		int cont = 0;
+		int soma = 0;
+		float media = 0;
 		
 		numDigitado = input.nextInt();
 		if(numDigitado >= 0)
@@ -14,12 +22,30 @@ public class Ex1 {
 			do
 			{
 			
-			numDigitado = input.nextInt();
-			numConcat = numDigitado.concat
 			
+			numeros.add(numDigitado);
+			System.out.println(numeros);
+			numDigitado = input.nextInt();
 			
 			}while(numDigitado >= 0);
+			System.out.println("Numero negativo. Programa Encerrado.");
+			Integer maior = Collections.max(numeros);
+			Integer menor = Collections.min(numeros);
 			
+			System.out.println("Maior numero do Array = " + maior);
+			System.out.println("Menor numero do Array = " + menor);
+			System.out.println("Tamanho do Array = " + numeros.size());
+				for(cont = 0; cont < numeros.size(); cont++)
+				{
+					soma = soma + numeros.get(cont);
+				}
+			media = soma / numeros.size();
+			System.out.println("Media dos valores do Array = " + media);
+
+			
+			
+			
+		
 		}else {
 			System.out.println("Primeiro numero negativo. Reinicie o programa.");
 		}
