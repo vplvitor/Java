@@ -1,0 +1,20 @@
+public class Ex3 {
+	public static void main(String[] args)
+	{
+			double chicoAtual = 150;
+			double zeAtual = 110;
+			int anos = 1;
+			
+				while(chicoAtual != zeAtual)
+				{
+					
+					chicoAtual = chicoAtual + 2;
+					zeAtual = zeAtual + 3;
+					System.out.println("Chico Altura Atual:" + chicoAtual / 100 + "m  Ze Altura Atual:" + zeAtual / 100 + "m Anos Passados:" + anos);
+					anos++;
+				}
+				System.out.println("Chico e Ze tinham 1.50m e 1.10m de altura inicialmente. Apos " + anos +" anos, possuem a mesma altura: " + chicoAtual / 100 + "m.");
+			
+		
+	}
+}
