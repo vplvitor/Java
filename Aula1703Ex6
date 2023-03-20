@@ -1,0 +1,29 @@
+import java.util.Scanner;
+
+public class Ex6 {
+	public static void main(String[] args)
+	{
+		System.out.println("Digite a sua velocidade e a velocidade máxima da via para saber sua multa: (use Km/h)");
+		Scanner input = new Scanner(System.in);
+		
+		double velDigit = input.nextDouble();
+		double velVia = input.nextDouble();
+		double multaMin, multaMax;
+		
+		
+		multaMin = velVia + (velVia * 0.2);
+		multaMax = velVia + (velVia * 0.5);
+		
+		if(velVia > velDigit)
+		{
+			System.out.println("Sua velocidade estava abaixo da maxima da via. Velocidade digitada: " + velDigit + " Velocidade da Via: " + velVia);
+		}else if(velDigit > velVia && multaMin > velDigit ){
+			System.out.println("Toma multa menor de R$130,16");
+		}else if(velDigit >= multaMin && velDigit < multaMax) {
+			System.out.println("Toma multa media de R$195,23.");
+		}else if(velDigit >= multaMax) {
+			System.out.println("Toma multa super multa de R$880,41.");
+		}
+		System.out.println("Velocidade digitada: " + velDigit + "km/h. Velocidade da Via: " + velVia + "km/h. Velocidade para multa minima: " + multaMin + "km/h. Velocidade para multa maxima: " + multaMax + "km/h.");
+	}
+}
