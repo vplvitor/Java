@@ -1,0 +1,34 @@
+import java.lang.reflect.Array;
+import java.util.ArrayList;
+import java.util.Scanner;
+
+public class Ex2 {
+	public static void main(String[] args)
+	{
+		System.out.println("Digite numeros de 4 algarismos");
+		Scanner input = new Scanner(System.in);
+		int numDigit, cont;
+		int dezena1, dezena2, dezenaSoma, dezenaRaiz;
+		
+		numDigit = input.nextInt();
+		if(numDigit > 999)
+		{
+
+				dezena1 = numDigit / 100;
+				dezena2 = numDigit % 100;
+				dezenaSoma = dezena1 + dezena2;
+				dezenaRaiz = dezenaSoma * dezenaSoma;
+				System.out.println("Separados: Metade(1) " + dezena1 + " Metade(2) " + dezena2);
+				if(dezenaRaiz == numDigit)
+				{
+					System.out.println("A raiz da soma das dezenas (" + dezenaSoma +")² = " + dezenaRaiz +" e igual ao numero inicial: "+ numDigit);
+				}else {
+					System.out.println("A raiz da soma das dezenas (" + dezenaSoma +")² != " + dezenaRaiz +" nao e igual ao numero inicial: "+ numDigit);
+				}
+			
+			
+		}else {
+			System.out.println("Numero invalido");
+		}
+	}
+}
