@@ -1,0 +1,64 @@
+
+public class CorridaClass {
+	private int data;
+	private int grupo;
+	private int idadeMaior;
+	private int pesoNormal;
+
+	CorredorClass Corredor = new CorredorClass();
+	CorridaClass()
+	{
+		
+	}
+	CorridaClass(int data, int grupo, int idadeMaior, int pesoNormal)
+	{
+		this.data = data;
+		this.grupo = grupo;
+		this.idadeMaior = idadeMaior;
+		this.pesoNormal = pesoNormal;
+	}
+	public void setData(int data)
+	{
+		this.data = data;
+	}
+	public int getData()
+	{
+		return data;
+	}
+	public void setGrupo(int grupo)
+	{
+		this.grupo = grupo;
+	}
+	public int getGrupo()
+	{
+		return grupo;
+	}
+	public void setIdadeMaior(int idadeDigit)
+	{
+		if(idadeMaior > idadeDigit)
+		{
+			idadeMaior++;
+		}
+	}
+	public int getIdadeMaior()
+	{
+		return idadeMaior;
+	}
+	public void setPesoNormal(int pesoNormal)
+	{
+		this.pesoNormal = pesoNormal;
+	}
+	public int getPesoNormal()
+	{
+		return pesoNormal;
+	}
+	public String printData()
+	{
+		return "A corrida será no dia: " + data + ".\n";
+	}
+	public String printVelho()
+	{
+		
+		return "Existem " + idadeMaior + " pessoas mais velhas que você.\n";
+	}
+}
