@@ -4,24 +4,31 @@ import java.util.Scanner;
 public class CorridaMain {
 	public static void main(String[] args)
 	{
-		System.out.println("Digite, em ordem , os dados dos 10 corredores: Nome, Idade, Peso e Altura.");
+		
 		Scanner input = new Scanner(System.in);
 		CorredorClass Corredor = new CorredorClass();
 		
 			for(int i = 0; i < 10; i++)
 			{
+				System.out.println("Digite dados do Corredor " + i);
+				System.out.println("Digite nome");
 				Corredor.setNome(input.nextLine());
+				System.out.println("Digite idade");
 				Corredor.setIdade(input.nextInt());
+				System.out.println("Digite peso");
 				Corredor.setPeso(input.nextInt());
+				System.out.println("Digite altura");
 				Corredor.setAltura(input.nextInt());
+				System.out.println("Digite nada");
+				input.nextLine();
 				
-				
-				System.out.println("Dados dos Corredores: \n Nome: " + Corredor.getNome() + "\n Idade: " + Corredor.getIdade());
+				System.out.println("Dados dos Corredores: \n Nome: " + Corredor.getNome() + "\n Idade: " + Corredor.getIdade() + "\n Peso: " + Corredor.getPeso() + "\n Altura: " + Corredor.getAltura());
 			}
 		
 		Corredor.getIdade();
 		System.out.println("Digite sua idade");
 		int idadeComp = input.nextInt();
 		System.out.println("Existem " + Corredor.getMaisVelho(idadeComp) + " pessoas mais velhas que você na corrida.");
+		System.out.println();
 	}
 }
