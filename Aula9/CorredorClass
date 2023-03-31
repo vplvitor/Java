@@ -1,0 +1,81 @@
+import java.util.ArrayList;
+import java.util.Arrays;
+
+public class CorredorClass {
+
+	ArrayList<String> nome = new ArrayList<String>();
+	ArrayList<Integer> idade = new ArrayList<Integer>();
+	ArrayList<Integer> peso = new ArrayList<Integer>();
+	ArrayList<Integer> altura = new ArrayList<Integer>();
+	
+	CorredorClass()
+	{
+		
+	}
+	CorredorClass(ArrayList<String> nome, ArrayList<Integer> idade, ArrayList<Integer> peso, ArrayList<Integer> altura)
+	{
+		this.nome = nome;
+		this.idade = idade;
+		this.peso = peso;
+		this.altura = altura;
+	}
+	public void setNome(String nomeDigit)
+	{
+		this.nome.add(nomeDigit);
+	}
+	public ArrayList<String> getNome()
+	{
+		return nome;
+	}
+	public void setIdade(int idadeDigit)
+	{
+		this.idade.add(idadeDigit);
+	}
+	public ArrayList<Integer> getIdade()
+	{
+		return idade;
+	}
+	public void setPeso(int pesoDigit)
+	{
+		this.peso.add(pesoDigit);
+	}
+	public ArrayList<Integer> getPeso()
+	{
+		return peso;
+	}
+	public void setAltura(int alturaDigit)
+	{
+		this.altura.add(alturaDigit);
+	}
+	public ArrayList<Integer> getAltura()
+	{
+		return altura;
+	}
+	public int getMaisVelho(int idadeComp)
+	{
+		int contFor = 0;
+		int contVelho = 0;
+		for(contFor = 0; contFor < 10; contFor++ )
+		{
+			if(idade.get(contFor) > idadeComp)
+			{
+				contVelho++;
+			}
+			
+		}
+		return contVelho;
+	}
+	public void printAll()
+	{
+		for(int i = 0; i < 10; i++)
+		{
+			System.out.println("Corredor \n" + i);
+			System.out.println("Nome: \n" + nome.toString());
+			System.out.println("Idade: \n" + idade.toString());
+			System.out.println("Peso:  \n" + peso.toString());
+			System.out.println("Altura \n" + altura.toString());
+			//System.out.println("Dados corredor " + i+1 + ": \n Nome: " + Arrays.toString(nome) + "\n Idade: " + idade<i>idade + "\n Peso: " + Corredor.getPeso() + "kg \n Altura: " + Corredor.getAltura() + "cm \n");
+		}
+		
+	}
+}
