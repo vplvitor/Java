@@ -1,0 +1,27 @@
+import java.util.Arrays;
+import java.util.Scanner;
+
+public class CorridaMain {
+	public static void main(String[] args)
+	{
+		System.out.println("Digite, em ordem , os dados dos 10 corredores: Nome, Idade, Peso e Altura.");
+		Scanner input = new Scanner(System.in);
+		CorredorClass Corredor = new CorredorClass();
+		
+			for(int i = 0; i < 10; i++)
+			{
+				Corredor.setNome(input.nextLine());
+				Corredor.setIdade(input.nextInt());
+				Corredor.setPeso(input.nextInt());
+				Corredor.setAltura(input.nextInt());
+				
+				
+				System.out.println("Dados dos Corredores: \n Nome: " + Corredor.getNome() + "\n Idade: " + Corredor.getIdade());
+			}
+		
+		Corredor.getIdade();
+		System.out.println("Digite sua idade");
+		int idadeComp = input.nextInt();
+		System.out.println("Existem " + Corredor.getMaisVelho(idadeComp) + " pessoas mais velhas que você na corrida.");
+	}
+}
