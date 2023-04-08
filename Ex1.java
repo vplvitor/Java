@@ -4,7 +4,6 @@ public class Ex1 {
 	public static void main(String[] args)
 	{
 		int ano = 0;
-		int cont = 0;
 		System.out.println("Informe um ano para saber se é bisexo ou não.");
 		Scanner input = new Scanner(System.in);
 		ano = input.nextInt();
