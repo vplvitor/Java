@@ -1,0 +1,49 @@
+
+public class ConjuntoOperacoes {
+
+	public static int fatorial(int x)
+	{
+		int num = 1;
+		System.out.println("Tabuada escolhida: " + x);
+		if(x == 0)
+			{
+				return 1;
+			}
+		else{
+			for(int i = 1; i <= x; i++)
+				{
+				num = num * i;
+				}
+				return num;
+		}
+	}
+	public static int exponencial(int x, int y)
+	{
+		int num = 0;
+		for(int i = 1; i < y; i++)
+		{
+			if(i == 1)
+			{
+				num = x * x;
+			}
+			else
+			{
+				num = num * x;
+			}
+		}
+		return num;
+	}
+	public static int maior(int vetor[])
+	{
+		int maior = vetor[0];
+		for(int i = 0; i < vetor.length; i++)
+		{
+			if(maior < vetor[i])
+			{
+				maior = vetor[i];
+			}
+		}
+		
+		return maior;
+	}
+}
