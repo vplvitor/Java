@@ -1,0 +1,25 @@
+public class Formas {
+	
+	public Formas() {}
+	public double calcularAreaRet()
+	{
+		double lado = 0;
+		double altura = 0;
+		return lado * altura;
+	}
+	public double calcularPerimetroRet() {
+		double lado = 0;
+		double altura = 0;
+		return (2 * lado) + (2 * altura);
+	}
+	public double calcularPerimetroCir()
+	{
+		double raio = 0;
+		return 2 * 3.14 * raio;
+	}
+	public double calcularAreaCir()
+	{
+		double raio = 0;
+		return raio * 3.14;
+	}
+}
