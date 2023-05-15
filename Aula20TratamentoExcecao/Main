@@ -1,0 +1,20 @@
+import java.util.Scanner;
+public class Main {
+	public static void main(String[] args)
+	{
+
+		
+		int num1, num2;
+		Scanner input = new Scanner(System.in);
+		System.out.println("Informe dois numeros.");
+		num1 = input.nextInt();
+		num2 = input.nextInt();
+		Calculadora cal = new Calculadora(num1, num2);
+		System.out.println("\nDivisão: " + cal.div());
+		System.out.println("\nSoma: " + cal.soma());
+		System.out.println("\nSubstração: " + cal.sub());
+		System.out.println("\nMultiplicação: " + cal.mult());
+		
+		input.close();
+	}
+}
