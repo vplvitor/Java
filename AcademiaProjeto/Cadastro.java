@@ -1,11 +1,14 @@
 import java.math.BigDecimal;
 import java.math.RoundingMode;
+import java.util.ArrayList;
 
 public class Cadastro {
 	private String nome;
 	private String email;
 	private double altura;
 	private double peso;
+	private ArrayList<Treino> treino = new ArrayList<Treino>();
+	private ArrayList<Dieta> dieta = new ArrayList<Dieta>();
 	
 	public Cadastro() {}
 	public Cadastro(String nome, String email, double altura, double peso) {
@@ -63,15 +66,15 @@ public class Cadastro {
 		
 		}else if(imcCalculo() < 18.5 && imcCalculo() > 10) {
 			System.out.println("Seu IMC está abaixo de 18.5, classificando como 'Magreza'."
-					+ "			Recomendamos um treino de fortalecimento muscular.");
+					+ "Recomendamos um treino de fortalecimento muscular.");
 			return 1;
 		}else if(imcCalculo() >= 18.5 && imcCalculo() <= 24.9) {
 			System.out.println("Seu IMC está entre de 18.5 e 24.9, classificando como 'Peso Normal'."
-					+ "			Recomendamos um treino de geral.");
+					+ "Recomendamos um treino de geral.");
 			return 2;
 		}else {
 			System.out.println("Seu IMC está acima de 25, classificando como 'Sobrepeso'."
-					+ "			Recomendamos um treino de emagrecimento.");
+					+ "Recomendamos um treino de emagrecimento.");
 			return 3;
 			}
 		
@@ -84,7 +87,7 @@ public class Cadastro {
 	
 	
 	public String toString() {
-		return "Cadastro [nome=" + nome + ", email=" + email + ", altura=" + altura + ", peso=" + peso + "]";
+		return "Cadastro [nome=" + nome + ", email=" + email + ", altura= " + altura + ", peso= " + peso + "]";
 	}
 
 }

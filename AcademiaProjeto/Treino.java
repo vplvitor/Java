@@ -1,9 +1,15 @@
-
-public abstract class Treino {
+public class Treino {
 	private int abdominal = 15;
 	private int esteira = 10;
 	private int prancha = 60;
+	private int peso;
 	
+	public Treino() {}
+	public Treino(int abdominal, int esteira, int prancha) {
+		this.abdominal = abdominal;
+		this.esteira = esteira;
+		this.prancha = prancha;
+	}
 	
 	public int getAbdominal() {
 		return abdominal;
