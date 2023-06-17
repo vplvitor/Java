@@ -1,5 +1,4 @@
 import java.math.BigDecimal;
-import java.math.RoundingMode;
 import java.util.ArrayList;
 import java.util.InputMismatchException;
 import java.util.Scanner;
@@ -124,7 +123,7 @@ public class Cadastro {
 	    }
 
 	    if (!cadastroEncontrado) {
-	        System.out.println("Nome não encontrado. Certifique-se que digitou corretamente ou que a pessoa realmente está cadastrada.");
+	        System.out.println("Nome não encontrado. Certifique-se que: \\n-Usou digitos apropriados\\n-Digitou corretamente o nome\\n-Que a pessoa realmente está cadastrada\\n\\nSe estiver em dúvida, consulte o Menu 4 para listagem.");
 	    }
 	}
 	public void deletaCadastro(ArrayList<Cadastro> listaCadastro)
@@ -147,7 +146,7 @@ public class Cadastro {
 
 	    if (!cadastroEncontrado)
 	    {
-	        System.out.println("Nome não encontrado. Certifique-se que: \nUsou digitos apropriados\nDigitou corretamente o nome\nQue a pessoa realmente está cadastrada\n\nSe estiver em dúvida, consulte o Menu 4 para listagem.");
+	        System.out.println("Nome não encontrado. Certifique-se que: \n-Usou digitos apropriados\n-Digitou corretamente o nome\n-Que a pessoa realmente está cadastrada\n\nSe estiver em dúvida, consulte o Menu 4 para listagem.");
 	    }
 	}
 
