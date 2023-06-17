@@ -7,9 +7,9 @@ public class Main {
         ArrayList<Cadastro> listaCadastro = new ArrayList<Cadastro>();
         System.out.println("Bem-vinda(a) ao sistema da Academia. Veja o menu para começar.");
         Scanner input = new Scanner(System.in);
-        int indexGeral = 0;
+        int index = 1;
 
-        while (indexGeral != 0) {
+        while (index != 0) {
             try {
                 System.out.println("Menu Principal:\n");
                 System.out.println("1) Cadastro");
@@ -17,23 +17,22 @@ public class Main {
                 System.out.println("3) Item 3");
                 System.out.println("0) Sair");
 
-                indexGeral = input.nextInt();
+                index = input.nextInt();
 
-                switch (indexGeral) {
+                switch (index) {
                     case 1:
-                        int indexCadastro = 0;
-
-                        while (indexCadastro != 0) {
+                        while (index != 0) {
                             try {
                                 System.out.println("Menu de Cadastro:\n");
                                 System.out.println("1) Criar Cadastro");
                                 System.out.println("2) Editar Cadastro");
                                 System.out.println("3) Excluir Cadastro");
-                                System.out.println("4) Voltar ao Menu Principal");
+                                System.out.println("4) Listar Cadastros");
+                                System.out.println("0) Voltar ao Menu Principal");
 
-                                indexCadastro = input.nextInt();
+                                index = input.nextInt();
 
-                                switch (indexCadastro) {
+                                switch (index) {
                                     case 1:
                                         System.out.println("1) Criação de Cadastro. Digite as informações pedidas.");
                                         Cadastro cadastro = new Cadastro();
@@ -49,11 +48,17 @@ public class Main {
                                         cadastro = new Cadastro();
                                         cadastro.deletaCadastro(listaCadastro);
                                         break;
+                                    case 4:
+                                        System.out.println("4) Listagem de Cadastro. Aqui está a lista de membros cadastrados atualmente.");
+                                        for (Cadastro membro : listaCadastro) {
+                                            System.out.println(membro.toString());
+                                        }
+                                        break;
                                     case 0:
                                         System.out.println("0) Voltando ao Menu Principal.");
                                         break;
                                     default:
-                                        System.out.println("Número da opção não está no Menu! Digite novamente.");
+                                        System.out.println("Número da opção não está no Menu de Cadastro! Digite novamente.");
                                         break;
                                 }
 
