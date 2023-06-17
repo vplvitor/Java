@@ -1,15 +1,30 @@
 import java.math.BigDecimal;
 import java.math.RoundingMode;
 import java.util.ArrayList;
+import java.util.InputMismatchException;
+import java.util.Scanner;
 
 public class Cadastro {
 	private String nome;
 	private String email;
 	private double altura;
 	private double peso;
-	private ArrayList<Treino> treino = new ArrayList<Treino>();
-	private ArrayList<Dieta> dieta = new ArrayList<Dieta>();
+	private int idade;
+	private Treino treino;
 	
+	
+	public Treino getTreino() {
+		return treino;
+	}
+	public void setTreino(Treino treino) {
+		this.treino = treino;
+	}
+	public int getIdade() {
+		return idade;
+	}
+	public void setIdade(int idade) {
+		this.idade = idade;
+	}
 	public Cadastro() {}
 	public Cadastro(String nome, String email, double altura, double peso) {
 		this.nome = nome;
@@ -17,7 +32,6 @@ public class Cadastro {
 		this.altura = altura;
 		this.peso = peso;
 	}
-	
 	public String getNome() {
 		return nome;
 	}
@@ -42,52 +56,104 @@ public class Cadastro {
 	public void setPeso(double peso) {
 		this.peso = peso;
 	}
-	public double imcCalculo() {
-		try {
-				double imc = getPeso() / (getAltura() * getAltura());
-				imc = imc*100;
-				imc = Math.round(imc);
-				imc = imc /100;
-				return imc;
-			}
-		catch(ArithmeticException Ar) {
-			System.out.println("A altura não pode ser 0. Refaça seu cadastro.");
-			System.out.println(Ar.toString());
-			return -1;
-			}
+	public Cadastro criarCadastro() {
+		
+		Cadastro cadastro = new Cadastro();
+	    Scanner input = new Scanner(System.in);
+
+	    boolean cadastroNovo = false;
+	    while (!cadastroNovo) {
+	        try {
+	            System.out.println("Nome: ");
+	            cadastro.setNome(input.nextLine());
+	            System.out.println("Email: ");
+	            cadastro.setEmail(input.nextLine());
+	            System.out.println("Altura: (em Metros)");
+	            cadastro.setAltura(input.nextDouble());
+	            System.out.println("Peso: (Em Kilogramas)");
+	            cadastro.setPeso(input.nextDouble());
+	            System.out.println("Idade: ");
+	            cadastro.setIdade(input.nextInt());
+	            
+	            cadastroNovo = true;
+	        } catch (InputMismatchException ime) {
+	            System.out.println("Digito inválido. Tente novamente. Erro: " + ime);
+	            input.nextLine();
+	        }
+	    }
+	    
+	    System.out.println("Cadastro concluído! Acesse nossa aba de listagem para ve-lo.");
+		return cadastro;
 	}
-	public double atribuiTreino() {
-		try {
-		if(imcCalculo() > 10)
-		{
-			System.out.println("Houve um erro no input. Refaca seu cadastro.");
-			System.out.println(imcCalculo());
-			return -1;
-		
-		}else if(imcCalculo() < 18.5 && imcCalculo() > 10) {
-			System.out.println("Seu IMC está abaixo de 18.5, classificando como 'Magreza'."
-					+ "Recomendamos um treino de fortalecimento muscular.");
-			return 1;
-		}else if(imcCalculo() >= 18.5 && imcCalculo() <= 24.9) {
-			System.out.println("Seu IMC está entre de 18.5 e 24.9, classificando como 'Peso Normal'."
-					+ "Recomendamos um treino de geral.");
-			return 2;
-		}else {
-			System.out.println("Seu IMC está acima de 25, classificando como 'Sobrepeso'."
-					+ "Recomendamos um treino de emagrecimento.");
-			return 3;
-			}
-		
-		}catch(ArithmeticException Ar) {
-			System.out.println(Ar.toString());
-			return -1;
-		}
-		
+	public void editaCadastro(ArrayList<Cadastro> listaCadastro) {
+	    Scanner input = new Scanner(System.in);
+	    System.out.println("Digite o nome do cadastrado que deseja alterar: ");
+	    String buscaNome = input.nextLine();
+	    System.out.println("Buscando " + buscaNome + " na lista...");
+	    boolean cadastroEncontrado = false;
+	    for (int i = 0; i < listaCadastro.size(); i++) {
+	        Cadastro cadastro = listaCadastro.get(i);
+	        if (cadastro.getNome().equalsIgnoreCase(buscaNome)) {
+	            cadastroEncontrado = true;
+	            System.out.println(buscaNome + " encontrado! Digite os novos dados do cadastro.");
+	            boolean cadastroNovo = false;
+	            while (!cadastroNovo) {
+	                try {
+	                    System.out.println("Novo Nome: ");
+	                    cadastro.setNome(input.nextLine());
+	                    System.out.println("Novo Email: ");
+	                    cadastro.setEmail(input.nextLine());
+	                    System.out.println("Nova Altura: (em Metros)");
+	                    cadastro.setAltura(input.nextDouble());
+	                    System.out.println("Novo Peso: (Em Kilogramas)");
+	                    cadastro.setPeso(input.nextDouble());
+	                    System.out.println("Nova Idade: ");
+	                    cadastro.setIdade(input.nextInt());
+
+	                    cadastroNovo = true;
+	                } catch (InputMismatchException ime) {
+	                    System.out.println("Digito inválido, comece novamente.");
+	                    System.out.println("Erro " + ime.getMessage());
+	                    input.nextLine();
+	                }
+	            }
+
+	            System.out.println("Cadastro alterado! Para ver o cadastro, veja nossa aba de listagem.");
+	            break;
+	        }
+	    }
+
+	    if (!cadastroEncontrado) {
+	        System.out.println("Nome não encontrado. Certifique-se que digitou corretamente ou que a pessoa realmente está cadastrada.");
+	    }
 	}
-	
-	
-	public String toString() {
-		return "Cadastro [nome=" + nome + ", email=" + email + ", altura= " + altura + ", peso= " + peso + "]";
+	public void deletaCadastro(ArrayList<Cadastro> listaCadastro)
+	{
+	    Scanner input = new Scanner(System.in);
+	    String buscaNome = input.nextLine();
+	    System.out.println("Buscando " + buscaNome + " na lista...");
+	    boolean cadastroEncontrado = false;
+	    for (int i = 0; i < listaCadastro.size(); i++)
+	    {
+	        Cadastro cadastro = listaCadastro.get(i);
+	        if (cadastro.getNome().equalsIgnoreCase(buscaNome))
+	        {
+	            cadastroEncontrado = true;
+	            listaCadastro.remove(i);
+	            System.out.println("Cadastro removido! Para verificar os cadastros restantes, veja nossa aba de listagem.");
+	            break;
+	        }
+	    }
+
+	    if (!cadastroEncontrado)
+	    {
+	        System.out.println("Nome não encontrado. Certifique-se que: \nUsou digitos apropriados\nDigitou corretamente o nome\nQue a pessoa realmente está cadastrada\n\nSe estiver em dúvida, consulte o Menu 4 para listagem.");
+	    }
 	}
 
+
+	public String toString() {
+		return "Membro\nNome: " + nome + "\nEmail: " + email + "\nAltura: " + altura + "M\nPeso= " + peso + "Kg\n";
+	}
+	public void montaTreinoMusculacao() {}
 }
